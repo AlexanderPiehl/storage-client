@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
@@ -34,23 +34,61 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <div class="card">
+        <Card v-for="(item, index) in items" :key="index" :item="item" />
+      </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Card from "@/components/Card";
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld,
+    Card,
   },
 
   data: () => ({
-    //
+    items: [
+      {
+        title: "Canon Kamera",
+        subTitle: "20 Megapixel",
+        description: "Super tolle Kameria mit vielen Funktionen.",
+        photoUrl: "https://picsum.photos/200",
+      },
+      {
+        title: "Sony Kamera",
+        subTitle: "18 Megapixel",
+        description:
+          "Auch eine tolle Kamera, aber von einem anderem Hersteller.",
+        photoUrl: "https://picsum.photos/200",
+      },
+      {
+        title: "Mikrofon",
+        subTitle: "Some specs",
+        description: "Super Mikrofon für Aufnahmen.",
+        photoUrl: "https://picsum.photos/200",
+      },
+      {
+        title: "Mikrofon 2",
+        subTitle: "Another Specs",
+        description: "Wir haben vielen Mikrofone",
+        photoUrl: "https://picsum.photos/200",
+      },
+    ],
   }),
 };
 </script>
+
+<style lang="scss">
+#app {
+  width: 100%;
+  .card {
+    padding-top: 20px;
+    display: flex;
+  }
+}
+</style>
