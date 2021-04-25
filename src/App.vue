@@ -34,21 +34,21 @@
     </v-app-bar>
 
     <v-main>
-      <div class="card">
-        <Card v-for="(item, index) in items" :key="index" :item="item" />
+      <div>
+        <CardList :items="items" />
       </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Card from "@/components/Card";
+import CardList from "@/components/CardList";
 
 export default {
   name: "App",
 
   components: {
-    Card,
+    CardList,
   },
 
   data: () => ({
@@ -86,9 +86,5 @@ export default {
 <style lang="scss">
 #app {
   width: 100%;
-  .card {
-    padding-top: 20px;
-    display: flex;
-  }
 }
 </style>
