@@ -46,40 +46,17 @@ import CardList from "@/components/CardList";
 
 export default {
   name: "App",
-
   components: {
     CardList,
   },
-
-  data: () => ({
-    items: [
-      {
-        title: "Canon Kamera",
-        subTitle: "20 Megapixel",
-        description: "Super tolle Kameria mit vielen Funktionen.",
-        photoUrl: "https://picsum.photos/200",
-      },
-      {
-        title: "Sony Kamera",
-        subTitle: "18 Megapixel",
-        description:
-          "Auch eine tolle Kamera, aber von einem anderem Hersteller.",
-        photoUrl: "https://picsum.photos/200",
-      },
-      {
-        title: "Mikrofon",
-        subTitle: "Some specs",
-        description: "Super Mikrofon für Aufnahmen.",
-        photoUrl: "https://picsum.photos/200",
-      },
-      {
-        title: "Mikrofon 2",
-        subTitle: "Another Specs",
-        description: "Wir haben vielen Mikrofone",
-        photoUrl: "https://picsum.photos/200",
-      },
-    ],
-  }),
+  computed: {
+    items() {
+      return this.$store.getters.items
+    }
+  },
+  created() {
+    this.$store.dispatch('getItems')
+  }
 };
 </script>
 
